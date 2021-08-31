@@ -17,23 +17,33 @@ header{
     width: 100%;
     height: calc(100vh - 35px);
     display: flex;
+    align-items: center;
+}
+
+#title-subtitle{
+    margin-top: 7em;
+    width: 45%;
+    display: flex;
     flex-direction: column;
     justify-content: center;
+    align-items: center;
 }
 
 #image-section h1{
-    padding: 5px;
     color:  #003399;
-    text-shadow: -3px -3px 11px #F4F4F4;
+    flex-grow: 1;
+    flex-shrink: 1;
+    text-shadow: 2px 2px 0 #F4F4F4;
     font-weight: bold;
     font-size: 5em;
 }
 #image-section h2{
-    padding: 5px;
     color: #f4f4f4;
-    text-shadow: -3px -3px 11px #003399;
+    flex-grow: 1;
+    flex-shrink: 1;
+    text-shadow: 2px 2px 0 #003399;
     font-weight: bold;
-    font-size: 4em;
+    font-size: 3em;
 }
 
 .navbar{
@@ -44,19 +54,71 @@ header{
     align-items: center;
 }
 
-.navbar ul{
+.navbar ul {
     display: flex;
+    flex-grow: 1;
+    flex-shrink: 1;
     list-style: none;
     width: 100%;
     justify-content: space-evenly;
+    height: 100%;
 }
 
 .navbar ul li{
     margin: 0 1rem;
     padding: 1rem;
+    height: 100%;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
 }
 .navbar ul li a{
     text-decoration: none;
     color: #f4f4f4;
     font-weight: bold;
+}
+.navbar ul li:hover{
+    background-color: rgba(244, 244, 244, 0.7);
+}
+.navbar ul li:hover a{
+    color: rgb(0, 71, 171);
+}
+
+@media only screen and (min-width: 1700px) {
+    #image-section h1{
+        font-size: 7em;
+    }
+    #image-section h2{
+        font-size: 5em;
+    }
+}
+
+@media screen and (max-width: 1215px) and (min-width: 1021px) {
+    #title-subtitle{
+        width: 60%;
+    }
+}
+@media screen and (max-width: 1020px) and (min-width: 821px) {
+    #title-subtitle{
+        width: 80%;
+    }
+}
+@media screen and (max-width: 820px){
+    .navbar ul li{
+        margin: 0 0.5rem;
+        padding: 0.5rem;
+    }
+    .navbar ul li a{
+        font-size: 0.8em;
+    }
+}
+@media screen and (max-width: 820px) and (min-width: 621px) {
+    #title-subtitle{
+        width: 90%;
+    }
+}
+@media screen and (max-width: 620px){
+    #title-subtitle{
+        width: 100%;
+    }
 }
