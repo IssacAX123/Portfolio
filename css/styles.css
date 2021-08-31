@@ -46,7 +46,7 @@ header{
     font-size: 3em;
 }
 
-.navbar{
+.navbar.main{
     display: flex;
     width: 100%;
     height: 35px;
@@ -54,7 +54,7 @@ header{
     align-items: center;
 }
 
-.navbar ul {
+.navbar.main ul {
     display: flex;
     flex-grow: 1;
     flex-shrink: 1;
@@ -64,7 +64,7 @@ header{
     height: 100%;
 }
 
-.navbar ul li{
+.navbar.main ul li{
     margin: 0 1rem;
     padding: 1rem;
     height: 100%;
@@ -84,6 +84,29 @@ header{
     color: rgb(0, 71, 171);
 }
 
+.navbar.mini{
+    display: none;
+    flex-direction: column;
+    width: 100%;
+}
+
+.toggle-button{
+    display: none;
+    margin-left: auto;
+    padding: 2px 2px 0 0;
+    flex-direction: column;
+    justify-content: space-between;
+    width: 31px;
+    height:21px;
+}
+
+.toggle-button .bar{
+    height: 3px;
+    width: 100%;
+    background-color: #f4f4f4;
+    border-radius: 10px;
+}
+
 @media only screen and (min-width: 1700px) {
     #image-section h1{
         font-size: 7em;
@@ -92,6 +115,7 @@ header{
         font-size: 5em;
     }
 }
+
 
 @media screen and (max-width: 1215px) and (min-width: 1021px) {
     #title-subtitle{
@@ -121,4 +145,38 @@ header{
     #title-subtitle{
         width: 100%;
     }
+}
+@media screen and (max-width: 640px){
+    .toggle-button{
+        display: flex;
+    }
+
+    .navbar.main{
+        display: none;
+    }
+
+    .navbar{
+        background:  rgba(0, 71, 171, 0.95);
+    }
+
+    .navbar.mini{
+        display:flex;
+    }
+    .navbar.mini ul{
+        display: none;
+        width: 100%;
+    }
+
+    .navbar.mini ul li{
+        text-align: center;
+    }
+    .navbar.mini ul li a{
+        font-size: 1.5em;
+        padding: .5rem 1rem;
+    }
+
+    .navbar.mini ul.active{
+        display: flex;
+    }
+
 }
