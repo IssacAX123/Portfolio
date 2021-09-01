@@ -7,6 +7,19 @@
     box-sizing: border-box;
     font-family: 'Open Sans', sans-serif;
 }
+body{
+    color: #43477B;
+    background: #EDEEFF;
+}
+
+.main-content{
+    margin: 3em 6em;
+    font-size: 1.25em;
+}
+.main-content h2{
+    font-size: 2.5em;
+    color: #5B4FB2;
+}
 header{
     background-image: url("../assets/landing-bg.jpg");
     background-size: cover;
@@ -33,12 +46,12 @@ header{
     color:  #003399;
     flex-grow: 1;
     flex-shrink: 1;
-    text-shadow: 2px 2px 0 #F4F4F4;
+    text-shadow: 2px 2px 0 #EDEEFF;
     font-weight: bold;
     font-size: 5em;
 }
 #image-section h2{
-    color: #f4f4f4;
+    color: #EDEEFF;
     flex-grow: 1;
     flex-shrink: 1;
     text-shadow: 2px 2px 0 #003399;
@@ -78,7 +91,7 @@ header{
 }
 .navbar ul li a{
     text-decoration: none;
-    color: #f4f4f4;
+    color: #EDEEFF;
     font-weight: bold;
 }
 .navbar ul li:hover{
@@ -107,7 +120,7 @@ header{
 .toggle-button .bar{
     height: 6px;
     width: 100%;
-    background-color: #f4f4f4;
+    background-color: #EDEEFF;
     border-radius: 10px;
 }
 
@@ -122,9 +135,6 @@ header{
 
 
 @media screen and (max-width: 1215px) and (min-width: 1021px) {
-    /*#title-subtitle{*/
-    /*    width: 60%;*/
-    /*}*/
     #image-section h1{
         font-size: 4em;
     }
@@ -133,9 +143,6 @@ header{
     }
 }
 @media screen and (max-width: 1020px) and (min-width: 851px) {
-    /*#title-subtitle{*/
-    /*    width: 80%;*/
-    /*}*/
     #image-section h1{
         font-size: 3.5em;
     }
