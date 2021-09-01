@@ -45,7 +45,11 @@ header{
     font-weight: bold;
     font-size: 3em;
 }
-
+.fixed-nav .navbar{
+    background:  rgba(0, 71, 171, 0.99)  !important;
+    position: fixed;
+    top: 0;
+}
 .navbar.main{
     display: flex;
     width: 100%;
@@ -140,9 +144,6 @@ header{
     }
 }
 @media screen and (max-width: 860px) and (min-width: 821px) {
-    /*#title-subtitle{*/
-    /*    width: 80%;*/
-    /*}*/
     #image-section h1{
         font-size: 3.25em;
     }
