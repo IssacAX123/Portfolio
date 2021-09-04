@@ -23,6 +23,11 @@ function stickyNav() {
 
 window.addEventListener('scroll', stickyNav)
 
+
+// //padding
+// let about = document.querySelector("#about-me");
+// if navbar.display
+
 // certificates
 let certificates =
     {
