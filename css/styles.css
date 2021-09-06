@@ -167,7 +167,7 @@ p{
 
 .content-container{
     flex-grow: 1;
-    margin: 0.4em 0;
+    margin: 1em 0;
     background-color: #E1D3FF;
     display: flex;
     justify-content: space-around;
@@ -224,6 +224,42 @@ p{
     height: 100%;
     width: auto;
 }
+
+#skills-container{
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    align-content: flex-start;
+    height: 88%;
+    width: auto;
+    margin: auto;
+}
+
+
+#skills-container div p{
+    font-size: 1.8em;
+}
+#skills-container div span{
+    font-size: 1.9em;
+    font-weight: bold;
+}
+
+#projects-container a{
+    border-radius: 25px;
+    margin: 2em;
+    background-color: #5B4FB2;
+    border: 5px dotted #003399;
+    text-decoration: none;
+}
+
+#projects-container div{
+    margin: 3em;
+}
+#projects-container a div p{
+    color: #E1D3FF;
+    font-weight: bold;
+    text-decoration: none;
+}
 /*@media only screen and (min-width: 1700px) {*/
 /*    #image-section h1{*/
 /*        font-size: 7em;*/
@@ -264,7 +300,7 @@ p{
     }
 }
 @media screen and (max-width: 760px){
-    p{
+    p, span{
         font-size: 1.2em;
     }
     .main-content{
@@ -272,6 +308,13 @@ p{
     }
     .main-content h2{
         font-size: 2.2em;
+    }
+    #skills-container div p{
+        font-size: 1.6em;
+    }
+    #skills-container div span{
+        font-size: 1.7em;
+        font-weight: bold;
     }
 }
 @media screen and (max-width: 729px) and (min-width: 641px) {

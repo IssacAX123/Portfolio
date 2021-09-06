@@ -84,14 +84,38 @@
 
         <section class="main-content" id="skills">
             <h2>Skills</h2>
-            <p>Languages <span class="skills" id="skills-languages">Python, Java, Pascal</span></p>
-            <p>Web Technologies <span class="skills" id="skills-web-tech">HTML, CSS, Javascript, Node, Express, React</span></p>
-            <p>Frameworks <span class="skills" id="skills-frameworks">Selenium, MongoDB, PostgreSQL</span></p>
-            <p>Frameworks <span class="skills" id="skills-spoken">English, Spanish</span></p>
+            <div id="skills-container">
+                <div class="skill-container">
+                    <p>Languages: </p>
+                    <span class="skills" id="skills-languages">Python, Java, Pascal</span>
+                </div>
+                <div class="skill-container">
+                    <p>Web Technologies: </p>
+                    <span class="skills" id="skills-web-tech">HTML, CSS, Javascript, Node, Express, React</span>
+                </div>
+                <div class="skill-container">
+                    <p>Frameworks: </p>
+                    <span class="skills" id="skills-frameworks">Selenium, MongoDB, PostgreSQL</span>
+                </div>
+                <div class="skill-container">
+                    <p>Spoken Languages: </p>
+                    <span class="skills" id="skills-spoken">English, Spanish</span>
+                </div>
+            </div>
         </section>
 
         <section class="main-content" id="projects">
             <h2>Projects</h2>
+            <p>Check out my <a href="https://github.com/IssacAX123" target="_blank">Github</a></p>
+            <select class="dropdown" id="projects-dropdown" >
+                <option value="All" selected>All</option>
+                <option value="Python">Python</option>
+                <option value="Java">Java</option>
+                <option value="Web">Web</option>
+            </select>
+            <div class="content-container" id="projects-container">
+
+            </div>
         </section>
 
         <section class="main-content" id="cv">

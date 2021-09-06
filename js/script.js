@@ -130,11 +130,11 @@ let certificates =
     };
 
 certificate_container = document.querySelector("#certificate-container");
-let button;
-let a;
-let select = document.querySelector("#certificates-dropdown");
-select.addEventListener('change', ()=>{
-    showCertificates(select);
+let certButton;
+let certA;
+let certSelect = document.querySelector("#certificates-dropdown");
+certSelect.addEventListener('change', ()=>{
+    showCertificates(certSelect);
 });
 
 function showCertificates(object){
@@ -154,16 +154,151 @@ function showCertificates(object){
 }
 
 function showCertificate(title){
-    a = document.createElement("a");
-    a.href = certificates[title]["url"]
-    a.target = "_blank";
-    button = document.createElement("button");
-    button.textContent = title
-    button.style.height = "3em";
-    button.style.minWidth = "13em";
-    button.style.margin = "1em";
-    a.appendChild(button);
-    certificate_container.appendChild(a);
+    certA = document.createElement("a");
+    certA.href = certificates[title]["url"]
+    certA.target = "_blank";
+    certButton = document.createElement("button");
+    certButton.textContent = title
+    certButton.style.height = "3em";
+    certButton.style.minWidth = "13em";
+    certButton.style.margin = "1em";
+    certA.appendChild(certButton);
+    certificate_container.appendChild(certA);
 }
 
-select.dispatchEvent(new Event('change'));
+certSelect.dispatchEvent(new Event('change'));
+
+// Projects
+let projects =
+    {
+        "Forex Trader (Pattern Recognition)": {
+            "url": "#",
+            "image": "assets/projects/forex-trader.jpg",
+            "tags": ["Python", "parallel-programming", "Google Cloud Platform"],
+            "displayTags": ["Python"],
+            "notes":[
+                "Interfaces with Oanda's Rest and Streaming API to get stock prices and access trading account",
+                "Calculated mathematical indicators using pandas and NumPy",
+                "Used multiprocessing to find and store patterns",
+                "Used Multithreading when trading",
+                "Used Cython to speed up code",
+                "Deployed to GCP VM"]},
+        "Djikstra's Shortest Path with Google Maps API": {
+            "url": "https://github.com/IssacAX123/gmaps-djikstras-shortest-path",
+            "image": "assets/projects/djikstra-google-maps.PNG",
+            "tags": ["Java", "JavaFX", "OpenCV"],
+            "displayTags": ["Java"],
+            "notes":[
+                "Interfaces with Google Maps API",
+                "Used OpenCV to read Image",
+                "Used Dijkstra's Algorithm to calculate the shortest path"]},
+        "Sudoku Multiplayer Game": {
+            "url": "https://github.com/IssacAX123/sudoku-server",
+            "image": "assets/projects/sudoku.PNG",
+            "tags": ["Python", "WebSockets", "MongoDB", "Java", "JavaFX", "HTML", "CSS", "Javascript"],
+            "displayTags": ["Python", "Java", "Web"],
+            "notes":[
+                "Made a WebSocket server in Python",
+                "Used Asynchronous Programming",
+                "Used backtracking to calculate sudoku boards",
+                "Used MongoDB to store running games",
+                "Used Java/JavaFX to make desktop GUI client",
+                "Used HTML,CSS,JavaScript to make web client"]},
+        "Youtube Playlist Duration Extention": {
+            "url": "https://chrome.google.com/webstore/detail/youtube-playlist-analyser/nocbnhlddghmkcagbnhpegjghahnjgnb",
+            "image": "assets/projects/youtube-extention.PNG",
+            "tags": ["Javascript", "CSS", "Chrome"],
+            "displayTags": ["Web"],
+            "notes":[
+                "Uses Javascript to access YouTube DOM to retrieve the time of all videos in the playlist",
+                "Manipulates YouTube's DOM to add results using CSS & HTML"]},
+        "Matrices Calculator": {
+            "url": "https://github.com/IssacAX123/Matrices-Calculator",
+            "image": "assets/projects/matrix calculation.PNG",
+            "tags": ["Python", "Mathematics", "TKinter"],
+            "displayTags": ["Python"],
+            "notes":[
+                "Used Python to calculate matrix addition, subtraction, multiplication, determinant and point of intersection",
+                "Used TKinter for GUI"]},
+        "Pong Multiplayer": {
+            "url": "https://github.com/IssacAX123/Pong-LAN-Multiplayer",
+            "image": "assets/projects/pong.PNG",
+            "tags": ["Python", "Pygame", "TCP/IP", "Sockets"],
+            "displayTags": ["Python"],
+            "notes":[
+                "Used Python to create TCP/IP Server",
+                "Used Asynchronous Programming",
+                "Used Pygame to handle graphics",
+                "Used multithreading to handle multiple games"]},
+        "Reverse Polish Notation Calcultaor": {
+            "url": "https://github.com/IssacAX123/RPN-Calculator-CML",
+            "displayTags": ["Java"],
+            "image": "assets/projects/rpn.PNG",
+            "tags": ["Python", "Pygame", "TCP/IP", "Sockets"],
+            "notes":[
+                "Used Python to create TCP/IP Server",
+                "Used Asynchronous Programming",
+                "Used Pygame to make game",
+                "Used multithreading to handle multiple games"]},
+        "Portfolio Website": {
+            "url": "https://github.com/IssacAX123/Portfolio",
+            "displayTags": ["Web"],
+            "image": "assets/projects/portfolio.PNG",
+            "tags": ["HTML", "CSS", "JavaScript"],
+            "notes":[]},
+    };
+
+project_container = document.querySelector("#projects-container");
+let projDiv;
+let projImg;
+let projP;
+let projA;
+let projSelect = document.querySelector("#projects-dropdown");
+projSelect.addEventListener('change', ()=>{
+    showProjects(projSelect);
+});
+
+function showProjects(object){
+    while (project_container.firstChild) {
+        project_container.removeChild(project_container.lastChild);
+    }
+    for (let title in projects) {
+        if(object.value !== "All"){
+            if(projects[title]["displayTags"].includes(object.value)){
+                showProject(title);
+            }
+        }else{
+            showProject(title);
+        }
+    }
+}
+
+function showProject(title){
+    projA = document.createElement("a");
+    projA.href = projects[title]["url"]
+    projA.target = "_blank";
+
+    projDiv = document.createElement("div");
+    projDiv.style.height = "10em";
+    projDiv.style.width = "15em";
+    projDiv.style.display = "flex";
+    projDiv.style.flexDirection = "column";
+
+    projImg = document.createElement("img");
+    projImg.src = projects[title]["image"]
+    projImg.style.maxHeight = "80%";
+    projImg.style.maxWidth = "auto";
+
+    projP = document.createElement("p");
+    projP.textContent = title
+    projP.style.maxWidth = "100%";
+    projP.style.maxHeight = "auto";
+    projP.style.fontSize = "1.2em";
+
+    projDiv.appendChild(projImg);
+    projDiv.appendChild(projP);
+    projA.appendChild(projDiv);
+    project_container.appendChild(projA);
+}
+
+projSelect.dispatchEvent(new Event('change'));
