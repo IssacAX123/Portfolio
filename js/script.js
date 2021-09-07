@@ -253,6 +253,10 @@ let projDiv;
 let projImg;
 let projP;
 let projA;
+let projHoverDiv;
+let projHoverNotesDiv;
+let projHoverTagsDiv;
+let projHoverP;
 let projSelect = document.querySelector("#projects-dropdown");
 projSelect.addEventListener('change', ()=>{
     showProjects(projSelect);
@@ -277,6 +281,8 @@ function showProject(title){
     projA = document.createElement("a");
     projA.href = projects[title]["url"]
     projA.target = "_blank";
+    projA.style.display = "flex";
+    projA.style.alignItems = "center";
 
     projDiv = document.createElement("div");
     projDiv.style.height = "10em";
@@ -295,10 +301,57 @@ function showProject(title){
     projP.style.maxHeight = "auto";
     projP.style.fontSize = "1.2em";
 
+    let func = (e)=>{
+        console.log("on it");
+        projHoverDiv = document.createElement("div");
+        projHoverDiv.classList.add("hover-div")
+        projHoverNotesDiv = document.createElement("div");
+        projHoverNotesDiv.classList.add("hover-notes-div")
+        for (let note in projects[title]["notes"]){
+            projHoverP =document.createElement("p");
+            projHoverP.classList.add("hover-note")
+            projHoverP.textContent = projects[title]["notes"][note];
+            projHoverNotesDiv.appendChild(projHoverP);
+        }
+        projHoverTagsDiv = document.createElement("div");
+        projHoverTagsDiv.classList.add("hover-tags-div")
+        for (let tag in projects[title]["tag"]){
+            projHoverP =document.createElement("p");
+            projHoverP.classList.add("hover-tags")
+            projHoverP.textContent = projects[title]["tags"][tag] + ", "
+            projHoverTagsDiv.appendChild(projHoverP)
+        }
+        // projHoverTagsDiv.lastChild.textContent = projHoverTagsDiv.lastChild.textContent.slice(0, projHoverTagsDiv.lastChild.textContent.length-2);
+
+        projHoverDiv.style.position = "absolute"
+        let top = e.clientY + window.scrollY - 40;
+        let left = e.clientX ;
+        console.log("top " + top.toString())
+        console.log("left " + left.toString())
+        projHoverDiv.style.top = top.toString() + "px";
+        projHoverDiv.style.left = left.toString() + "px";
+        projHoverDiv.style.zIndex = "10";
+
+        projHoverDiv.appendChild(projHoverNotesDiv);
+        projHoverDiv.appendChild((projHoverP));
+        projHoverDiv.style.position = "absolute";
+        projA.appendChild(projHoverDiv);
+        projA.removeEventListener("mouseover", func);
+    };
+    projA.addEventListener("mouseover", func)
+    projA.addEventListener("mouseout", (e)=>{
+       document.querySelector(".hover-div").remove();
+        projA.addEventListener("mouseover", ()=>{
+            func(e);
+        })
+    });
+
+
     projDiv.appendChild(projImg);
     projDiv.appendChild(projP);
     projA.appendChild(projDiv);
     project_container.appendChild(projA);
 }
+
 
 projSelect.dispatchEvent(new Event('change'));

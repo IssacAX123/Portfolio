@@ -246,7 +246,7 @@ p{
 
 #projects-container a{
     border-radius: 25px;
-    margin: 2em;
+    margin: 1em;
     background-color: #5B4FB2;
     border: 5px dotted #003399;
     text-decoration: none;
@@ -259,6 +259,17 @@ p{
     color: #E1D3FF;
     font-weight: bold;
     text-decoration: none;
+}
+
+.hover-div{
+    margin: 0;
+    padding: 0;
+    background-color: #FF9376;
+    border-radius: 10px;
+    border: 2px solid #5B4FB2;
+    box-shadow: 2px 2px 5px rgba(0,0,0,0.5),
+    10px 10px 15px rgba(0,0,0,0.5),
+    -1px -1px 30px rgba(0,0,0,0.2);
 }
 /*@media only screen and (min-width: 1700px) {*/
 /*    #image-section h1{*/
