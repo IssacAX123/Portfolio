@@ -234,12 +234,10 @@ let projects =
             "url": "https://github.com/IssacAX123/RPN-Calculator-CML",
             "displayTags": ["Java"],
             "image": "assets/projects/rpn.PNG",
-            "tags": ["Python", "Pygame", "TCP/IP", "Sockets"],
+            "tags": ["Java", "Data Structures & Algorithms"],
             "notes":[
-                "Used Python to create TCP/IP Server",
-                "Used Asynchronous Programming",
-                "Used Pygame to make game",
-                "Used multithreading to handle multiple games"]},
+                "Used Java",
+                "Used Stacks for RPN"]},
         "Portfolio Website": {
             "url": "https://github.com/IssacAX123/Portfolio",
             "displayTags": ["Web"],
@@ -256,6 +254,8 @@ let projA;
 let projHoverDiv;
 let projHoverNotesDiv;
 let projHoverTagsDiv;
+let projHoverPDiv;
+let projHoverBullet;
 let projHoverP;
 let projSelect = document.querySelector("#projects-dropdown");
 projSelect.addEventListener('change', ()=>{
@@ -302,22 +302,28 @@ function showProject(title){
     projP.style.fontSize = "1.2em";
 
     let func = (e)=>{
-        console.log("on it");
         projHoverDiv = document.createElement("div");
         projHoverDiv.classList.add("hover-div")
         projHoverNotesDiv = document.createElement("div");
         projHoverNotesDiv.classList.add("hover-notes-div")
         for (let note in projects[title]["notes"]){
+            projHoverPDiv = document.createElement("div");
+            projHoverPDiv.classList.add("hover-notes-pDiv")
+            projHoverBullet = document.createElement("p");
+            projHoverBullet.textContent = "⚪";
+            projHoverBullet.classList.add("bullet");
+            projHoverPDiv.appendChild(projHoverBullet)
             projHoverP =document.createElement("p");
             projHoverP.classList.add("hover-note")
             projHoverP.textContent = projects[title]["notes"][note];
-            projHoverNotesDiv.appendChild(projHoverP);
+            projHoverPDiv.appendChild(projHoverP);
+            projHoverNotesDiv.appendChild(projHoverPDiv)
         }
         projHoverTagsDiv = document.createElement("div");
         projHoverTagsDiv.classList.add("hover-tags-div")
-        for (let tag in projects[title]["tag"]){
+        for (let tag in projects[title]["tags"]){
             projHoverP =document.createElement("p");
-            projHoverP.classList.add("hover-tags")
+            projHoverP.classList.add("hover-tag")
             projHoverP.textContent = projects[title]["tags"][tag] + ", "
             projHoverTagsDiv.appendChild(projHoverP)
         }
@@ -326,24 +332,19 @@ function showProject(title){
         projHoverDiv.style.position = "absolute"
         let top = e.clientY + window.scrollY - 40;
         let left = e.clientX ;
-        console.log("top " + top.toString())
-        console.log("left " + left.toString())
         projHoverDiv.style.top = top.toString() + "px";
         projHoverDiv.style.left = left.toString() + "px";
         projHoverDiv.style.zIndex = "10";
 
         projHoverDiv.appendChild(projHoverNotesDiv);
-        projHoverDiv.appendChild((projHoverP));
+        projHoverDiv.appendChild((projHoverTagsDiv));
         projHoverDiv.style.position = "absolute";
         projA.appendChild(projHoverDiv);
-        projA.removeEventListener("mouseover", func);
     };
+
     projA.addEventListener("mouseover", func)
     projA.addEventListener("mouseout", (e)=>{
        document.querySelector(".hover-div").remove();
-        projA.addEventListener("mouseover", ()=>{
-            func(e);
-        })
     });
 
 
@@ -355,3 +356,9 @@ function showProject(title){
 
 
 projSelect.dispatchEvent(new Event('change'));
+
+// open cv in new tab
+
+document.querySelector("#cv").addEventListener("click", ()=>{
+    window.open("assets/cv.pdf");
+})
