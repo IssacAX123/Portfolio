@@ -121,22 +121,30 @@
         <section class="main-content" id="cv">
             <h2>CV</h2>
             <iframe id="cv-frame" src="assets/cv.pdf"></iframe>
+            <div class="button" style="display:none;"><span>Click to open CV</span></div>
         </section>
 
         <section class="main-content" id="contact">
             <h2>Contact</h2>
             <form id="form" action="http://localhost/Projects/portfolio-email-test/email.php" method="post">
-                <label for="name">Full Name</label>
-                <input type="text" id="name" name="name">
-                <br>
-                <label for="email">Email</label>
-                <input type="text" id="email" name="email">
-                <br>
-                <label for="subject">Subject</label>
-                <input type="text" id="subject" name="subject">
-                <br>
-                <label for="message">Message</label>
-                <textarea rows="4" cols="50" name="message" id="message" form="form">.</textarea>
+                <div class="form_input">
+                    <label for="name">Full Name</label>
+                    <input type="text" id="name" name="name">
+                </div>
+
+                <div class="form_input">
+                    <label for="email">Email</label>
+                    <input type="text" id="email" name="email">
+                </div>
+
+                <div class="form_input">
+                    <label for="subject">Subject</label>
+                    <input type="text" id="subject" name="subject">
+                </div>
+                <div class="form_input">
+                    <label for="message">Message</label>
+                    <textarea rows="4" cols="70" name="message" id="message" form="form">.</textarea>
+                </div>
                 <input type="submit" value="submit">
             </form>
         </section>
